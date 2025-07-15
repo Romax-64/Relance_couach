@@ -69,8 +69,7 @@ def main():
 
     # Étape 2 : paramètres et envoi des relances
     st.header("2. Envoi des relances par e-mail")
-    with st.expander("⚙️ Paramètres de messagerie"):
-        st.markdown("Paramètres d'envoie et de la signature")
+    with st.expander("⚙️ Paramètres de messagerieet de la signature"):
         # Champs pour les paramètres SMTP
         sender_name = st.text_input("Nom de l'expéditeur", value=settings.SENDER_NAME)
         sender_email = st.text_input("Adresse e-mail expéditeur", value=settings.SENDER_EMAIL)
