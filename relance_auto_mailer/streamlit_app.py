@@ -26,17 +26,19 @@ logger = logging.getLogger(__name__)
 def main():
     # Configuration de la page Streamlit
     st.set_page_config(page_title="Relance Automatique", layout="centered")
-    st.title("📧 Relance fournisseurs automatique")
+    st.title("📧 Relance automatique")
+    st.subtitle("par Romane")
 
     # Description succincte de l'application
-    st.markdown("Ce logiciel génère et envoie automatiquement les relances fournisseurs en deux étapes :")
+    st.markdown("Ce logiciel génère et envoie automatiquement les relances issues du portefeuille en deux étapes :")
     st.markdown("1. Génération du fichier de relance à partir du portefeuille")
     st.markdown("2. Envoi des e-mails de relance aux fournisseurs")
 
     # Étape 1 : upload du fichier de commandes
     st.header("1. Chargement du fichier de commandes")
+    st.markdown("Attention a nommer la feuille des retards : 'Retards'")
     commandes_file = st.file_uploader(
-        "📄 Sélectionnez le fichier commandes (.xlsx)", type=["xlsx"], key="cmd"
+        "📄 Sélectionnez le fichier portefeuille (.xlsx)", type=["xlsx"], key="cmd"
     )
 
     # Bouton de génération du fichier de relance
