@@ -110,7 +110,7 @@ def main():
                 logger.exception("Erreur lors de l'envoi des relances")
                 st.error(f"Erreur : {e}")
                 
-        st.markdown("© Réalisé par Romane Fourrier - 2025 - Tous droits réservés.")
+    st.markdown("© Réalisé par Romane Fourrier - 2025 - Tous droits réservés.")
 
 # Point d'entrée
 if __name__ == "__main__":
