@@ -1,0 +1,20 @@
+Structure du projet :
+
+Logiciel_de_relance_automatique/
+├── .env.example               # Modèle de variables d’environnement
+├── README.txt                 # Guide d’installation et d’utilisation
+├── ARCHITECTURE.txt           # Description de l’architecture du projet
+├── setup.py                   # Script d’installation setuptools
+├── requirements.txt           # Liste des dépendances
+├── resources/                 # Ressources statiques (logo)
+│   └── logo.png
+└── relance_auto_mailer/       # Package principal
+    ├── __init__.py            # Version et API publique
+    ├── config.py              # Chargement des settings depuis .env
+    ├── extractor.py           # Extraction des données et génération du fichier relance
+    ├── mailer.py              # Construction et envoi des e-mails + mémo
+    ├── utils.py               # Fonctions utilitaires (emails, date, nommage)
+    ├── relance_txt.tpl        # Template texte brut
+    ├── relance_html.tpl       # Template HTML
+    ├── signature.tpl          # Template signature
+    └── streamlit_app.py       # Interface Streamlit (point d’entrée)
