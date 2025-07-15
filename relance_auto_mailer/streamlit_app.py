@@ -27,7 +27,6 @@ def main():
     # Configuration de la page Streamlit
     st.set_page_config(page_title="Relance Automatique", layout="centered")
     st.title("📧 Relance automatique")
-    st.markdown("par Romane")
 
     # Description succincte de l'application
     st.markdown("Ce logiciel génère et envoie automatiquement les relances issues du portefeuille en deux étapes :")
@@ -110,6 +109,8 @@ def main():
                 # Log et affichage d'erreur en cas d'échec
                 logger.exception("Erreur lors de l'envoi des relances")
                 st.error(f"Erreur : {e}")
+                
+        st.markdown("© Réalisé par Romane Fourrier - 2025 - Tous droits réservés.")
 
 # Point d'entrée
 if __name__ == "__main__":
