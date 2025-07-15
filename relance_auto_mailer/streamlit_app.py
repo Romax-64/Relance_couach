@@ -35,7 +35,7 @@ def main():
 
     # Étape 1 : upload du fichier de commandes
     st.header("1. Chargement du fichier de commandes")
-    st.markdown("Attention a nommer la feuille des retards : 'Retards'")
+    st.markdown("⚠️ Attention a nommer la feuille des retards : **'Retards'**")
     commandes_file = st.file_uploader(
         "📄 Sélectionnez le fichier portefeuille (.xlsx)", type=["xlsx"], key="cmd"
     )
