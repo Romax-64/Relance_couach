@@ -27,7 +27,7 @@ def main():
     # Configuration de la page Streamlit
     st.set_page_config(page_title="Relance Automatique", layout="centered")
     st.title("📧 Relance automatique")
-    st.subtitle("par Romane")
+    st.markdown("par Romane")
 
     # Description succincte de l'application
     st.markdown("Ce logiciel génère et envoie automatiquement les relances issues du portefeuille en deux étapes :")
