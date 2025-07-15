@@ -5,34 +5,30 @@ Created on Thu Jul 10 13:32:08 2025
 @author: roman
 """
 
+import streamlit as st
 from pathlib import Path
-from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
 
-class Settings(BaseSettings):
-    # Configuration du chargement depuis le fichier .env
-    model_config = SettingsConfigDict(
-        env_file='.env',
-        env_file_encoding='utf-8'
-    )
+# Chargement des paramètres depuis Streamlit Secrets
+class Settings:
+    SMTP_HOST: str = st.secrets["SMTP_HOST"]
+    SMTP_PORT: int = int(st.secrets.get("SMTP_PORT", 587))
 
-    SMTP_HOST: str                 = Field('smtp.office365.com', description="Adresse du serveur SMTP")
-    SMTP_PORT: int                 = Field(587, description="Port du serveur SMTP")
+    SENDER_NAME: str = st.secrets["SENDER_NAME"]
+    SENDER_EMAIL: str = st.secrets["SENDER_EMAIL"]
+    SENDER_PASSWORD: str = st.secrets["SENDER_PASSWORD"]
 
-    SENDER_NAME: str               = Field('Romane Fourrier', description="Nom complet de l'expéditeur")
-    SENDER_EMAIL: str              = Field('r.fourrier@couach.com', description="Adresse e-mail de l'expéditeur")
-    SENDER_PASSWORD: str           = Field('rmoo28FnW', description="Mot de passe ou token SMTP")
+    DEFAULT_LANGUAGE: str = st.secrets.get("DEFAULT_LANGUAGE", "FR")
+    LOGO_FILENAME: str = st.secrets.get("LOGO_FILENAME", "logo.png")
 
-    DEFAULT_LANGUAGE: str          = Field('FR', description="Langue par défaut : 'FR' ou 'EN'")
-    LOGO_FILENAME: str             = Field('logo.png', description="Nom du fichier logo dans resources/")
+    SUBJECT_FR: str = st.secrets.get("SUBJECT_FR", "Suivi commandes en cours")
+    SUBJECT_EN: str = st.secrets.get("SUBJECT_EN", "Follow-up on ongoing orders")
 
-    SUBJECT_FR: str                = Field('Suivi commandes en cours', description="Sujet du mail en français")
-    SUBJECT_EN: str                = Field('Follow-up on ongoing orders', description="Sujet du mail en anglais")
+    # Chemins internes
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent
+    RESOURCES_DIR: Path = BASE_DIR / 'resources'
+    TEMPLATES_DIR: Path = BASE_DIR / 'relance_auto_mailer'
 
-    BASE_DIR: Path                 = Field(default_factory=lambda: Path(__file__).resolve().parent.parent)
-    RESOURCES_DIR: Path            = Field(default_factory=lambda: Path(__file__).resolve().parent.parent / 'resources')
-    TEMPLATES_DIR: Path            = Field(default_factory=lambda: Path(__file__).resolve().parent / 'relance_auto_mailer')
-
-# Instanciation des paramètres avec valeurs par défaut
+# Instanciation pour import
 settings = Settings()
+
 
