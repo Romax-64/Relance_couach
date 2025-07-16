@@ -117,7 +117,7 @@ def envoyer_mails(fichier_relance: Path, sender_email: str, sender_password: str
             )
 
         # Envoi du message
-        smtp.send_message(msg)
+        #smtp.send_message(msg)
         logger.info(f"Email envoyé à {to_addrs} pour {fournisseur}")
 
         # Ajout des commandes au mémo
